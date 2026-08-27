@@ -14,12 +14,9 @@ return new class extends Migration
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pelanggan_id')->constrained('pelanggan')->cascadeOnDelete();
-            $table->string('nama_penerima');
-            $table->string('no_telepon');
-            $table->text('alamat');
+            $table->string('status', 20)->default('Diproses');
+            $table->integer('total_harga');
             $table->text('catatan')->nullable();
-            $table->decimal('total_harga', 10, 2);
-            $table->string('status')->default('diproses');
             $table->timestamps();
         });
     }

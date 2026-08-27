@@ -16,7 +16,7 @@ class PesananDetail extends Model
         "menu_id",
         "varian",
         "jumlah",
-        "harga"
+        "subtotal"
     ];
 
     public function pesanan()

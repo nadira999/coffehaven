@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pesanan_id')->constrained('pesanan')->cascadeOnDelete();
-            $table->string('metode');
-            $table->string('bukti_pembayaran')->nullable();
-            $table->string('status')->default('pending');
+            $table->string('metode', 20);
+            $table->string('bukti_foto', 255)->nullable();
+            $table->string('status', 20)->default('Pending');
             $table->timestamps();
         });
     }

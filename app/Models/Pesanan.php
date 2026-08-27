@@ -13,12 +13,9 @@ class Pesanan extends Model
 
     protected $fillable = [
         "pelanggan_id",
-        "nama_penerima",
-        "no_telepon",
-        "alamat",
-        "catatan",
+        "status",
         "total_harga",
-        "status"
+        "catatan"
     ];
 
     public function pelanggan()

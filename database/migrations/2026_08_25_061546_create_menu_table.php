@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_menu', 100);
             $table->string('kategori', 20);
+            $table->string('varian', 20)->nullable();
             $table->integer('harga');
             $table->string('foto', 255)->nullable();
             $table->timestamps();

@@ -14,8 +14,9 @@ class Menu extends Model
     protected $fillable = [
         "nama_menu",
         "kategori",
+        "varian",
         "harga",
-        "foto",
+        "foto"
     ];
 
     public function pesananDetail()

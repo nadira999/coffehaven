@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pesanan_id')->constrained('pesanan')->cascadeOnDelete();
             $table->foreignId('menu_id')->constrained('menu')->cascadeOnDelete();
-            $table->string('varian', 10);
             $table->integer('jumlah');
             $table->integer('subtotal');
             $table->timestamps();

@@ -14,7 +14,6 @@ class PesananDetail extends Model
     protected $fillable = [
         "pesanan_id",
         "menu_id",
-        "varian",
         "jumlah",
         "subtotal"
     ];

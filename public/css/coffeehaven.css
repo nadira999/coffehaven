@@ -79,3 +79,17 @@ body {
     border-color: var(--coffee);
     box-shadow: 0 0 0 .2rem rgba(111, 78, 55, .15);
 }
+
+.table-bordered,
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid var(--cream-dark) !important;
+}
+
+.table thead th {
+    background-color: var(--cream);
+    color: var(--coffee-dark);
+}
+.sidebar.bg-gradient-coffee {
+    background: linear-gradient(180deg, var(--coffee) 10%, var(--coffee-dark) 100%);
+}

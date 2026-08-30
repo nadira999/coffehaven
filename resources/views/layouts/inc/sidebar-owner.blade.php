@@ -24,28 +24,28 @@
     </li>
 
     <li class="nav-item {{ request()->routeIs('owner.pesanan.*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('owner.pesanan.index') }}">
-        <i class="fas fa-fw fa-clipboard-list"></i>
-        <span>Data Pesanan</span>
-    </a>
+        <a class="nav-link" href="{{ route('owner.pesanan.index') }}">
+            <i class="fas fa-fw fa-clipboard-list"></i>
+            <span>Data Pesanan</span>
+        </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ request()->routeIs('owner.pembayaran.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('owner.pembayaran.index') }}">
             <i class="fas fa-fw fa-money-check-alt"></i>
             <span>Data Pembayaran</span>
         </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ request()->routeIs('owner.profil.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('owner.profil.edit') }}">
             <i class="fas fa-fw fa-user-circle"></i>
             <span>Data Owner</span>
         </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ request()->routeIs('owner.pelanggan.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('owner.pelanggan.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Data Pelanggan</span>
         </a>

@@ -19,5 +19,12 @@ Route::prefix('owner')->name('owner.')->group(function () {
         Route::get('/pembayaran', [\App\Http\Controllers\Owner\PembayaranController::class, 'index'])->name('pembayaran.index');
         Route::put('/pembayaran/{id}/verifikasi', [\App\Http\Controllers\Owner\PembayaranController::class, 'verifikasi'])->name('pembayaran.verifikasi');
         Route::put('/pembayaran/{id}/tolak', [\App\Http\Controllers\Owner\PembayaranController::class, 'tolak'])->name('pembayaran.tolak');
+
+        Route::get('/pelanggan', [\App\Http\Controllers\Owner\PelangganController::class, 'index'])->name('pelanggan.index');
+        Route::get('/pelanggan/{id}', [\App\Http\Controllers\Owner\PelangganController::class, 'show'])->name('pelanggan.show');
+        Route::delete('/pelanggan/{id}', [\App\Http\Controllers\Owner\PelangganController::class, 'destroy'])->name('pelanggan.destroy');
+
+        Route::get('/profil', [\App\Http\Controllers\Owner\ProfilController::class, 'edit'])->name('profil.edit');
+        Route::put('/profil', [\App\Http\Controllers\Owner\ProfilController::class, 'update'])->name('profil.update');
     });
 });

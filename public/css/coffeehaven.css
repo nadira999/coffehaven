@@ -7,89 +7,191 @@
 }
 
 body {
+
     background-color: var(--cream);
+
 }
 
 .text-coffee {
-    color: var(--coffee) !important;
+
+    color: var(--coffee);
+
 }
 
 .border-left-coffee {
-    border-left: .25rem solid var(--coffee) !important;
+
+    border-left: .25rem solid var(--coffee);
+
 }
 
 .btn-coffee {
+
     background-color: var(--coffee);
+
     border-color: var(--coffee);
+
     color: #fff;
+
 }
 
 .btn-coffee:hover,
+
 .btn-coffee:focus {
+
     background-color: var(--coffee-dark);
+
     border-color: var(--coffee-dark);
+
     color: #fff;
+
 }
 
 .login-wrapper {
+
     min-height: 100vh;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     background-color: var(--cream);
+
 }
 
 .login-card {
+
     width: 100%;
+
     max-width: 420px;
+
     background: #ffffff;
+
     border-radius: 1rem;
+
     padding: 2.5rem;
+
     box-shadow: 0 .5rem 1.5rem rgba(75, 46, 43, .15);
+
 }
 
 .login-logo {
+
     text-align: center;
+
     font-size: 1.4rem;
+
     font-weight: 700;
+
     color: var(--coffee-dark);
+
     margin-bottom: 1.5rem;
+
 }
 
 .login-greeting {
+
     font-size: 1.4rem;
+
     font-weight: 700;
+
     color: #2d2d2d;
+
     margin-bottom: .25rem;
+
 }
 
 .login-subtitle {
+
     color: #8a8a8a;
+
     font-size: .9rem;
+
     margin-bottom: 1.5rem;
+
 }
 
 .login-input {
+
     border-radius: .75rem;
+
     border: 1px solid var(--cream-dark);
+
     padding: .75rem 1rem;
+
 }
 
 .login-input:focus {
+
     border-color: var(--coffee);
+
     box-shadow: 0 0 0 .2rem rgba(111, 78, 55, .15);
+
 }
 
-.table-bordered,
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid var(--cream-dark) !important;
+
+/* TABEL */
+
+table.table-bordered th,
+
+table.table-bordered td {
+
+    border-color: var(--cream-dark);
+
 }
+
+
+/* Header tabel */
 
 .table thead th {
+
     background-color: var(--cream);
-    color: var(--coffee-dark);
+
+    color: #2d2d2d;
+
 }
+
+
+/* Isi tabel */
+
+.table tbody td {
+
+    background-color: #F8F9FC;
+
+}
+
+
+/* Sidebar */
+
 .sidebar.bg-gradient-coffee {
+
     background: linear-gradient(180deg, var(--coffee) 10%, var(--coffee-dark) 100%);
+
+}
+
+
+/* Navbar atas */
+
+.topbar {
+
+    background-color: var(--cream);
+
+}
+
+
+/* Kotak besar di belakang tabel tetap coklat */
+
+.card:has(table) {
+
+    background-color: var(--coffee);
+
+}
+
+.card:has(table) .card-header,
+.card:has(table) .card-title,
+.card:has(table) h5,
+.card:has(table) h6 {
+    background-color: transparent;
+    color: #fff;
 }

@@ -36,17 +36,17 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Menolak pembayaran.
+     * Menandai pembayaran gagal.
      */
     public function tolak(string $id)
     {
         $pembayaran = Pembayaran::findOrFail($id);
         $pembayaran->update([
-            'status' => 'Ditolak',
+            'status' => 'Gagal',
         ]);
 
         return redirect()
             ->route('owner.pembayaran.index')
-            ->with('success', 'Pembayaran berhasil ditolak!');
+            ->with('success', 'Pembayaran ditandai gagal!');
     }
 }

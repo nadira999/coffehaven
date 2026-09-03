@@ -58,47 +58,15 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6 mb-4">
+        <div class="col-12 mb-4">
             <div class="card shadow h-100">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-coffee">Ringkasan Status Pesanan</h6>
+                    <h6 class="m-0 font-weight-bold text-coffee">Grafik Pendapatan Bulanan</h6>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <span class="text-muted">Diantar</span>
-                            <div class="h5 font-weight-bold">{{ $statusSummary['Diantar'] }}</div>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <span class="text-muted">Diproses</span>
-                            <div class="h5 font-weight-bold">{{ $statusSummary['Diproses'] }}</div>
-                        </div>
-                        <div class="col-6">
-                            <span class="text-muted">Selesai</span>
-                            <div class="h5 font-weight-bold">{{ $statusSummary['Selesai'] }}</div>
-                        </div>
-                        <div class="col-6">
-                            <span class="text-muted">Batal</span>
-                            <div class="h5 font-weight-bold">{{ $statusSummary['Batal'] }}</div>
-                        </div>
+                    <div class="chart-bar">
+                        <canvas id="myBarChart"></canvas>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-6 mb-4">
-            <div class="card shadow h-100">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-coffee">Menu Terlaris</h6>
-                </div>
-                <div class="card-body">
-                    <ol class="mb-0 ps-3">
-                        @forelse ($menuTerlaris as $item)
-                            <li>{{ $item->menu->nama_menu ?? '-' }}</li>
-                        @empty
-                            <li class="text-muted">Belum ada data</li>
-                        @endforelse
-                    </ol>
                 </div>
             </div>
         </div>
@@ -137,4 +105,13 @@
             </table>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        var labelBulan = @json($labelBulan);
+        var dataPendapatan = @json($dataPendapatan);
+    </script>
+    <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('js/demo/chart-bar-demo.js') }}"></script>
 @endsection

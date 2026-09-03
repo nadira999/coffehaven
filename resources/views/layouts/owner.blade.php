@@ -53,5 +53,7 @@
             });
         </script>
     @endif
+
+    @yield('scripts')
 </body>
 </html>

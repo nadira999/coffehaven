@@ -28,3 +28,15 @@ Route::prefix('owner')->name('owner.')->group(function () {
         Route::put('/profil', [\App\Http\Controllers\Owner\ProfilController::class, 'update'])->name('profil.update');
     });
 });
+
+Route::prefix('pelanggan')->name('pelanggan.')->group(function () {
+    Route::get('/daftar', [\App\Http\Controllers\Pelanggan\AuthController::class, 'showRegister'])->name('register');
+    Route::post('/daftar', [\App\Http\Controllers\Pelanggan\AuthController::class, 'register'])->name('register.store');
+    Route::get('/login', [\App\Http\Controllers\Pelanggan\AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [\App\Http\Controllers\Pelanggan\AuthController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [\App\Http\Controllers\Pelanggan\AuthController::class, 'logout'])->name('logout');
+    Route::middleware('auth:pelanggan')->group(function () {
+    Route::get('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'create'])->name('pesanan.create');
+    Route::post('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'store'])->name('pesanan.store');
+    });
+});

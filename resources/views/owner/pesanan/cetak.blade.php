@@ -68,14 +68,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pesanan->pesananDetail as $detail)
-                <tr>
-                    <td>{{ $detail->menu->nama_menu }}</td>
-                    <td class="center">{{ $detail->jumlah }}</td>
-                    <td class="center">{{ number_format($detail->subtotal, 0, ',', '.') }}</td>
-                </tr>
-            @endforeach
-        </tbody>
+    @foreach ($pesanan->pesananDetail as $detail)
+        <tr>
+            <td>{{ $detail->menu->nama_menu }}{{ $detail->varian ? ' (' . $detail->varian . ')' : '' }}</td>
+            <td class="center">{{ $detail->jumlah }}</td>
+            <td class="center">{{ number_format($detail->subtotal, 0, ',', '.') }}</td>
+        </tr>
+    @endforeach
+</tbody>
     </table>
 
     <div class="divider"></div>

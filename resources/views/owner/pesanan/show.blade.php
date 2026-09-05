@@ -33,7 +33,7 @@
                     @foreach ($pesanan->pesananDetail as $detail)
                         <tr>
                             <td>{{ $detail->menu->nama_menu }}</td>
-                            <td>{{ $detail->menu->varian ?? '-' }}</td>
+                            <td>{{ $detail->varian ?? '-' }}</td>
                             <td>{{ $detail->jumlah }}</td>
                         </tr>
                     @endforeach

@@ -30,13 +30,21 @@ Route::prefix('owner')->name('owner.')->group(function () {
 });
 
 Route::prefix('pelanggan')->name('pelanggan.')->group(function () {
+    Route::get('/beranda', [\App\Http\Controllers\Public\PublicController::class, 'beranda'])->name('beranda');
+    Route::get('/menu', [\App\Http\Controllers\Public\PublicController::class, 'menu'])->name('menu');
+    Route::get('/about', [\App\Http\Controllers\Public\PublicController::class, 'about'])->name('about');
+    Route::get('/contact', [\App\Http\Controllers\Public\PublicController::class, 'contact'])->name('contact');
+
     Route::get('/daftar', [\App\Http\Controllers\Pelanggan\AuthController::class, 'showRegister'])->name('register');
     Route::post('/daftar', [\App\Http\Controllers\Pelanggan\AuthController::class, 'register'])->name('register.store');
     Route::get('/login', [\App\Http\Controllers\Pelanggan\AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [\App\Http\Controllers\Pelanggan\AuthController::class, 'login'])->name('login.submit');
     Route::post('/logout', [\App\Http\Controllers\Pelanggan\AuthController::class, 'logout'])->name('logout');
+
     Route::middleware('auth:pelanggan')->group(function () {
-    Route::get('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'create'])->name('pesanan.create');
-    Route::post('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'store'])->name('pesanan.store');
+        Route::get('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'create'])->name('pesanan.create');
+        Route::post('/pesanan', [\App\Http\Controllers\Pelanggan\PesananController::class, 'store'])->name('pesanan.store');
+        Route::get('/riwayat', [\App\Http\Controllers\Pelanggan\RiwayatController::class, 'index'])->name('riwayat.index');
+        Route::get('/riwayat/{id}', [\App\Http\Controllers\Pelanggan\RiwayatController::class, 'show'])->name('riwayat.show');
     });
 });

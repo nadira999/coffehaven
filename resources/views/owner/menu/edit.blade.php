@@ -67,6 +67,14 @@
                 @enderror
             </div>
 
+            <div class="form-group mb-3">
+                <div class="form-check">
+                    <input type="checkbox" name="unggulan" id="unggulan" value="1"
+                        class="form-check-input" {{ old('unggulan', $menu->unggulan) ? 'checked' : '' }}>
+                    <label for="unggulan" class="form-check-label">Jadikan Menu Unggulan (tampil di Beranda)</label>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-coffee">Simpan</button>
             <a href="{{ route('owner.menu.index') }}" class="btn btn-secondary">Batal</a>
         </form>

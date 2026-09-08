@@ -67,6 +67,13 @@
                 <div class="col-md-1">
                     <button type="submit" class="btn btn-coffee w-100">Tambah</button>
                 </div>
+
+                <div class="col-12">
+                    <div class="form-check">
+                        <input type="checkbox" name="unggulan" id="unggulan" value="1" class="form-check-input" {{ old('unggulan') ? 'checked' : '' }}>
+                        <label for="unggulan" class="form-check-label">Jadikan Menu Unggulan (tampil di Beranda)</label>
+                    </div>
+                </div>
             </form>
 
             <table class="table table-striped table-bordered">
@@ -78,6 +85,7 @@
                         <th>VARIAN</th>
                         <th>FOTO</th>
                         <th>HARGA</th>
+                        <th>UNGGULAN</th>
                         <th width="150">AKSI</th>
                     </tr>
                 </thead>
@@ -97,13 +105,20 @@
                             </td>
                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                             <td>
+                                @if ($item->unggulan)
+                                    <span class="badge bg-success">Ya</span>
+                                @else
+                                    <span class="badge bg-secondary">Tidak</span>
+                                @endif
+                            </td>
+                            <td>
                                 <a href="{{ route('owner.menu.edit', $item->id) }}" class="btn btn-link p-0 me-2">Edit</a>
                                 <a href="#" onclick="actionDestroy('{{ route('owner.menu.destroy', $item->id) }}')" class="btn btn-link text-danger p-0">Hapus</a>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center">Data menu tidak ditemukan...</td>
+                            <td colspan="8" class="text-center">Data menu tidak ditemukan...</td>
                         </tr>
                     @endforelse
                 </tbody>

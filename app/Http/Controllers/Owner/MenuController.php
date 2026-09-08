@@ -49,6 +49,7 @@ class MenuController extends Controller
             'varian' => $request->varian,
             'harga' => $request->harga,
             'foto' => $fotoPath,
+            'unggulan' => $request->boolean('unggulan'),
         ]);
 
         return redirect()
@@ -91,6 +92,7 @@ class MenuController extends Controller
             'varian' => $request->varian,
             'harga' => $request->harga,
             'foto' => $fotoPath,
+            'unggulan' => $request->boolean('unggulan'),
         ]);
 
         return redirect()

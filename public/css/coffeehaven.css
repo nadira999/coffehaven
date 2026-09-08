@@ -14,6 +14,10 @@ body {
     color: var(--coffee);
 }
 
+.text-coffee-dark {
+    color: var(--coffee-dark);
+}
+
 .border-left-coffee {
     border-left: .25rem solid var(--coffee);
 }
@@ -31,6 +35,15 @@ body {
     color: #fff;
 }
 
+.bg-coffee {
+    background-color: var(--coffee) !important;
+}
+
+.font-heading {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Login & Register (Owner & Pelanggan) */
 .login-wrapper {
     min-height: 100vh;
     display: flex;
@@ -80,34 +93,21 @@ body {
     box-shadow: 0 0 0 .2rem rgba(111, 78, 55, .15);
 }
 
-/* TABEL */
+/* Tabel (Owner) */
 table.table-bordered th,
 table.table-bordered td {
     border-color: var(--cream-dark);
 }
 
-/* Header tabel */
 .table thead th {
     background-color: var(--cream);
     color: #2d2d2d;
 }
 
-/* Isi tabel */
 .table tbody td {
     background-color: #F8F9FC;
 }
 
-/* Sidebar */
-.sidebar.bg-gradient-coffee {
-    background: linear-gradient(180deg, var(--coffee) 10%, var(--coffee-dark) 100%);
-}
-
-/* Navbar atas */
-.topbar {
-    background-color: var(--cream);
-}
-
-/* Kotak besar di belakang tabel tetap coklat */
 .card:has(table) {
     background-color: var(--coffee);
 }
@@ -118,4 +118,111 @@ table.table-bordered td {
 .card:has(table) h6 {
     background-color: transparent;
     color: #fff;
+}
+
+/* Sidebar & Topbar (Owner) */
+.sidebar.bg-gradient-coffee {
+    background: linear-gradient(180deg, var(--coffee) 10%, var(--coffee-dark) 100%);
+}
+
+.topbar {
+    background-color: var(--cream);
+}
+
+/* Navbar Publik */
+.navbar-brand-spaced {
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Footer Publik */
+.footer-coffee {
+    background-color: var(--coffee-dark);
+}
+
+.text-cream-muted {
+    color: rgba(248, 246, 241, 0.7);
+}
+
+.footer-link {
+    color: rgba(248, 246, 241, 0.7);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: var(--cream);
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border-color: rgba(248, 246, 241, 0.2);
+}
+
+.footer-social {
+    color: rgba(248, 246, 241, 0.8);
+    font-size: 1.1rem;
+}
+
+.footer-social:hover {
+    color: var(--cream);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--cream);
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn-pill-cream {
+    background-color: var(--cream);
+    color: var(--coffee-dark);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-weight: 600;
+}
+
+.btn-pill-cream:hover {
+    background-color: #fff;
+    color: var(--coffee-dark);
+}
+
+/* Beranda */
+.hero-coffee {
+    background-image: url('/images/hero-beranda2.jpeg');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 570px;
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.visit-us-section {
+    background-color: var(--cream-dark);
+}
+
+.jam-operasional {
+    background-color: var(--cream-dark);
+    color: var(--coffee-dark);
+}
+
+.font-script {
+    font-family: 'Dancing Script', cursive;
 }

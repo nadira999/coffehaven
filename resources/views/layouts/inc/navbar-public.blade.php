@@ -1,9 +1,3 @@
-<div class="navbar-utility">
-    <div class="container d-flex justify-content-between align-items-center">
-        <small><i class="fas fa-clock mr-1"></i> Buka Setiap Hari 08.00 - 21.00</small>
-        <small><i class="fas fa-phone-alt mr-1"></i> +62 812-xxxx-xxxx</small>
-    </div>
-</div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-coffee shadow">
     <div class="container">

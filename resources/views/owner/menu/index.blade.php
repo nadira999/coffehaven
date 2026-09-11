@@ -9,70 +9,60 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route('owner.menu.store') }}" method="POST" enctype="multipart/form-data" class="row g-3 align-items-end mb-4">
+            <form action="{{ route('owner.menu.store') }}" method="POST" enctype="multipart/form-data" class="mb-4">
                 @csrf
 
-                <div class="col-md-3">
-                    <label for="nama_menu" class="form-label">Nama Menu</label>
-                    <input type="text" name="nama_menu" id="nama_menu" value="{{ old('nama_menu') }}"
-                        class="form-control @error('nama_menu') is-invalid @enderror">
-                    @error('nama_menu')
-                        <span class="invalid-feedback d-block">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="col-md-2">
-                    <label for="kategori" class="form-label">Kategori</label>
-                    <select name="kategori" id="kategori" class="form-select @error('kategori') is-invalid @enderror">
-                        <option value="">-- Pilih Kategori --</option>
-                        @foreach (['Kopi', 'Non-Kopi', 'Pastry', 'Camilan'] as $kategori)
-                            <option value="{{ $kategori }}" {{ old('kategori') == $kategori ? 'selected' : '' }}>{{ $kategori }}</option>
-                        @endforeach
-                    </select>
-                    @error('kategori')
-                        <span class="invalid-feedback d-block">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="col-md-2">
-                    <label for="varian" class="form-label">Varian</label>
-                    <input type="text" name="varian" id="varian" value="{{ old('varian') }}"
-                        class="form-control @error('varian') is-invalid @enderror"
-                        placeholder="Panas / Dingin">
-                    @error('varian')
-                        <span class="invalid-feedback d-block">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="col-md-2">
-                    <label for="foto" class="form-label">Foto</label>
-                    <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
-                    @error('foto')
-                        <span class="invalid-feedback d-block">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <div class="col-md-2">
-                    <label for="harga" class="form-label">Harga</label>
-                    <div class="input-group">
-                        <span class="input-group-text">Rp</span>
-                        <input type="number" name="harga" id="harga" value="{{ old('harga') }}"
-                            class="form-control @error('harga') is-invalid @enderror">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3">
+                        <label for="nama_menu" class="form-label">Nama Menu</label>
+                        <input type="text" name="nama_menu" id="nama_menu" value="{{ old('nama_menu') }}" autocomplete="off"
+                            class="form-control @error('nama_menu') is-invalid @enderror">
+                        @error('nama_menu')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                        @enderror
                     </div>
-                    @error('harga')
-                        <span class="invalid-feedback d-block">{{ $message }}</span>
-                    @enderror
-                </div>
 
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-coffee w-100">Tambah</button>
-                </div>
-
-                <div class="col-12">
-                    <div class="form-check">
-                        <input type="checkbox" name="unggulan" id="unggulan" value="1" class="form-check-input" {{ old('unggulan') ? 'checked' : '' }}>
-                        <label for="unggulan" class="form-check-label">Jadikan Menu Unggulan (tampil di Beranda)</label>
+                    <div class="col-md-2">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <select name="kategori" id="kategori" class="form-select @error('kategori') is-invalid @enderror">
+                            <option value="">-- Pilih --</option>
+                            @foreach (['Kopi', 'Non-Kopi', 'Pastry', 'Camilan'] as $kategori)
+                                <option value="{{ $kategori }}" {{ old('kategori') == $kategori ? 'selected' : '' }}>{{ $kategori }}</option>
+                            @endforeach
+                        </select>
+                        @error('kategori')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                        @enderror
                     </div>
+
+                    <div class="col-md-3">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
+                        @error('foto')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="harga" class="form-label">Harga</label>
+                        <div class="input-group">
+                            <span class="input-group-text">Rp</span>
+                            <input type="number" name="harga" id="harga" value="{{ old('harga') }}"
+                                class="form-control @error('harga') is-invalid @enderror">
+                        </div>
+                        @error('harga')
+                            <span class="invalid-feedback d-block">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-white-coffee w-100">Tambah</button>
+                    </div>
+                </div>
+
+                <div class="form-check mt-3">
+                    <input type="checkbox" name="unggulan" id="unggulan" value="1" class="form-check-input" {{ old('unggulan') ? 'checked' : '' }}>
+                    <label for="unggulan" class="form-check-label">Jadikan Menu Unggulan (tampil di Beranda)</label>
                 </div>
             </form>
 
@@ -82,7 +72,6 @@
                         <th width="50px">NO</th>
                         <th>NAMA MENU</th>
                         <th>KATEGORI</th>
-                        <th>VARIAN</th>
                         <th>FOTO</th>
                         <th>HARGA</th>
                         <th>UNGGULAN</th>
@@ -95,7 +84,6 @@
                             <td>{{ $menu->firstItem() + $loop->index }}</td>
                             <td>{{ $item->nama_menu }}</td>
                             <td>{{ $item->kategori }}</td>
-                            <td>{{ $item->varian ?? '-' }}</td>
                             <td>
                                 @if ($item->foto)
                                     <img src="{{ asset('storage/' . $item->foto) }}" alt="{{ $item->nama_menu }}" width="60" class="rounded">
@@ -118,7 +106,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-center">Data menu tidak ditemukan...</td>
+                            <td colspan="7" class="text-center">Data menu tidak ditemukan...</td>
                         </tr>
                     @endforelse
                 </tbody>

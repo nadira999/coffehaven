@@ -33,7 +33,6 @@ class MenuController extends Controller
         $request->validate([
             'nama_menu' => 'required|string|max:100',
             'kategori' => 'required|string|max:20',
-            'varian' => 'nullable|string|max:20',
             'harga' => 'required|integer|min:0',
             'foto' => 'nullable|image|max:2048'
         ]);
@@ -46,7 +45,6 @@ class MenuController extends Controller
         Menu::create([
             'nama_menu' => $request->nama_menu,
             'kategori' => $request->kategori,
-            'varian' => $request->varian,
             'harga' => $request->harga,
             'foto' => $fotoPath,
             'unggulan' => $request->boolean('unggulan'),
@@ -74,7 +72,6 @@ class MenuController extends Controller
         $request->validate([
             'nama_menu' => 'required|string|max:100',
             'kategori' => 'required|string|max:20',
-            'varian' => 'nullable|string|max:20',
             'harga' => 'required|integer|min:0',
             'foto' => 'nullable|image|max:2048'
         ]);
@@ -89,7 +86,6 @@ class MenuController extends Controller
         $menu->update([
             'nama_menu' => $request->nama_menu,
             'kategori' => $request->kategori,
-            'varian' => $request->varian,
             'harga' => $request->harga,
             'foto' => $fotoPath,
             'unggulan' => $request->boolean('unggulan'),

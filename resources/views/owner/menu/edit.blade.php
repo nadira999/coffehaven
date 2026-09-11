@@ -35,16 +35,6 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="varian" class="form-label">Varian</label>
-                <input type="text" name="varian" id="varian" value="{{ old('varian', $menu->varian) }}"
-                    class="form-control @error('varian') is-invalid @enderror"
-                    placeholder="Contoh: Panas / Dingin">
-                @error('varian')
-                    <span class="invalid-feedback d-block">{{ $message }}</span>
-                @enderror
-            </div>
-
-            <div class="form-group mb-3">
                 <label for="harga" class="form-label">Harga<span class="text-danger">*</span></label>
                 <input type="number" name="harga" id="harga" value="{{ old('harga', $menu->harga) }}"
                     class="form-control @error('harga') is-invalid @enderror">

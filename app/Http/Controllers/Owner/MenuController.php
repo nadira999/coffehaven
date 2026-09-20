@@ -13,7 +13,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menu = Menu::paginate(10);
+        $menu = Menu::all();
         return view('owner.menu.index', compact('menu'));
     }
 
@@ -47,7 +47,6 @@ class MenuController extends Controller
             'kategori' => $request->kategori,
             'harga' => $request->harga,
             'foto' => $fotoPath,
-            'unggulan' => $request->boolean('unggulan'),
         ]);
 
         return redirect()
@@ -88,7 +87,6 @@ class MenuController extends Controller
             'kategori' => $request->kategori,
             'harga' => $request->harga,
             'foto' => $fotoPath,
-            'unggulan' => $request->boolean('unggulan'),
         ]);
 
         return redirect()

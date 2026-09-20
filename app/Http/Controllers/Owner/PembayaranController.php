@@ -36,7 +36,7 @@ class PembayaranController extends Controller
     }
 
     /**
-     * Menandai pembayaran gagal.
+     * Menandai pembayaran ditolak.
      */
     public function tolak(string $id)
     {
@@ -47,6 +47,6 @@ class PembayaranController extends Controller
 
         return redirect()
             ->route('owner.pembayaran.index')
-            ->with('success', 'Pembayaran ditandai gagal!');
+            ->with('success', 'Pembayaran ditandai ditolak!');
     }
 }

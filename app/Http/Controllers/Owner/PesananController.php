@@ -60,4 +60,17 @@ class PesananController extends Controller
 
         return view('owner.pesanan.cetak', compact('pesanan'));
     }
+
+        /**
+     * Menghapus data pesanan.
+     */
+    public function destroy(string $id)
+    {
+        $pesanan = Pesanan::findOrFail($id);
+        $pesanan->delete();
+
+        return redirect()
+            ->route('owner.pesanan.index')
+            ->with('success', 'Pesanan berhasil dihapus!');
+    }
 }

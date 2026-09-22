@@ -6,7 +6,7 @@
 
 <div class="hero-coffee d-flex align-items-center py-5">
     <div class="container text-center" style="margin-top: 80px;">
-        <p class="font-script text-coffee-dark mb-1" style="font-size: 1.8rem;">Jelajahi Cita Rasa Kami</p>
+        <p class="font-script text-coffee-dark mb-1" style="font-size: 3.5rem;">Jelajahi Cita Rasa Kami</p>
         <h1 class="font-heading font-weight-bold text-coffee-dark display-4">
             Menu Kami
         </h1>
@@ -36,7 +36,7 @@
                             <span class="text-muted">[ foto ]</span>
                         </div>
                     @endif
-                    <div class="card-body">
+                    <div class="card-body" style="padding: 0.5rem;">
                         <h6 class="font-weight-bold mb-1">{{ $item->nama_menu }}</h6>
                         <small class="text-muted d-block mb-1">{{ $item->varian ?? '-' }}</small>
                         <span class="text-coffee font-weight-bold">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>

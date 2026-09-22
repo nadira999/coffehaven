@@ -13,7 +13,13 @@ class PublicController extends Controller
      */
     public function beranda()
     {
-        $menuUnggulan = Menu::where('unggulan', true)->inRandomOrder()->take(4)->get();
+        $menuUnggulan = Menu::whereIn('nama_menu', [
+            'Jamur Krispi',
+            'Mix Platter',
+            'Croissant Cheese',
+            'Cireng',
+        ])->get();
+
         return view('public.beranda', compact('menuUnggulan'));
     }
 

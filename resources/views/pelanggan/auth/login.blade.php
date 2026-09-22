@@ -9,12 +9,12 @@
     <div class="login-greeting">Selamat Datang Kembali! 👋</div>
     <div class="login-subtitle">Login untuk melanjutkan pemesanan</div>
 
-    <form method="POST" action="{{ route('pelanggan.login.submit') }}">
+    <form method="POST" action="{{ route('pelanggan.login.submit') }}" autocomplete="off">
         @csrf
 
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" id="email"
+            <input type="email" name="email" id="email" autocomplete="off"
                 class="form-control login-input @error('email') is-invalid @enderror"
                 value="{{ old('email') }}"
                 placeholder="Masukkan email Anda">
@@ -25,7 +25,7 @@
 
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password"
+            <input type="password" name="password" id="password" autocomplete="new-password"
                 class="form-control login-input @error('password') is-invalid @enderror"
                 placeholder="Masukkan password">
             @error('password')

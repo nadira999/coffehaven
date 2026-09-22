@@ -9,12 +9,12 @@
     <div class="login-greeting">Selamat Datang! 👋</div>
     <div class="login-subtitle">Buat akun untuk mulai memesan</div>
 
-    <form method="POST" action="{{ route('pelanggan.register.store') }}">
+    <form method="POST" action="{{ route('pelanggan.register.store') }}" autocomplete="off">
         @csrf
 
         <div class="mb-3">
             <label for="nama" class="form-label">Nama Lengkap</label>
-            <input type="text" name="nama" id="nama"
+            <input type="text" name="nama" id="nama" autocomplete="off"
                 class="form-control login-input @error('nama') is-invalid @enderror"
                 value="{{ old('nama') }}"
                 placeholder="Masukkan nama lengkap">
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email"
+                <input type="email" name="email" id="email" autocomplete="off"
                     class="form-control login-input @error('email') is-invalid @enderror"
                     value="{{ old('email') }}"
                     placeholder="Masukkan email">
@@ -37,7 +37,7 @@
 
             <div class="col-md-6 mb-3">
                 <label for="no_telepon" class="form-label">Nomor Telepon</label>
-                <input type="text" name="no_telepon" id="no_telepon"
+                <input type="text" name="no_telepon" id="no_telepon" autocomplete="off"
                     class="form-control login-input @error('no_telepon') is-invalid @enderror"
                     value="{{ old('no_telepon') }}"
                     placeholder="Masukkan nomor telepon">
@@ -49,7 +49,7 @@
 
         <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
-            <textarea name="alamat" id="alamat" rows="3"
+            <textarea name="alamat" id="alamat" rows="3" autocomplete="off"
                 class="form-control login-input @error('alamat') is-invalid @enderror"
                 placeholder="Masukkan alamat">{{ old('alamat') }}</textarea>
             @error('alamat')
@@ -59,7 +59,7 @@
 
         <div class="mb-4">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password"
+            <input type="password" name="password" id="password" autocomplete="new-password"
                 class="form-control login-input @error('password') is-invalid @enderror"
                 placeholder="Masukkan password">
             @error('password')

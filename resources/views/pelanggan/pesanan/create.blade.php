@@ -83,7 +83,8 @@
                         <div class="mb-3">
                             <label for="metode_pembayaran" class="form-label">Metode Pembayaran</label>
                             <select name="metode_pembayaran" id="metode_pembayaran"
-                                class="form-select login-input @error('metode_pembayaran') is-invalid @enderror">
+                                class="form-select login-input @error('metode_pembayaran') is-invalid @enderror"
+                                onchange="toggleBukti()">
                                 <option value="">-- Pilih --</option>
                                 <option value="Transfer Bank" {{ old('metode_pembayaran') == 'Transfer Bank' ? 'selected' : '' }}>Transfer Bank</option>
                                 <option value="QRIS" {{ old('metode_pembayaran') == 'QRIS' ? 'selected' : '' }}>QRIS</option>
@@ -104,7 +105,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4" id="wrapper_bukti">
                             <label for="bukti_pembayaran" class="form-label">Upload Bukti Pembayaran</label>
                             <input type="file" name="bukti_pembayaran" id="bukti_pembayaran" accept="image/*"
                                 class="form-control @error('bukti_pembayaran') is-invalid @enderror">
@@ -150,5 +151,21 @@
         document.getElementById('total_harga_display').innerText =
             'Rp ' + total.toLocaleString('id-ID');
     }
+
+    function toggleBukti() {
+        var metode = document.getElementById('metode_pembayaran').value;
+        var wrapper = document.getElementById('wrapper_bukti');
+        var input = document.getElementById('bukti_pembayaran');
+
+        if (metode === 'COD') {
+            wrapper.style.display = 'none';
+            input.required = false;
+        } else {
+            wrapper.style.display = 'block';
+            input.required = true;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', toggleBukti);
 </script>
 @endsection

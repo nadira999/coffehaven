@@ -1,8 +1,6 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-coffee shadow">
     <div class="container">
-        <a class="navbar-brand navbar-brand-spaced" href="{{ route('pelanggan.beranda') }}">THE COFFEE HAVEN</a>
-
+        <a class="navbar-brand navbar-brand-spaced font-heading" href="{{ route('pelanggan.beranda') }}">THE COFFEE HAVEN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPublic">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,16 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarPublic">
             <ul class="navbar-nav mr-auto ml-4">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pelanggan.beranda') }}">Beranda</a>
+                    <a class="nav-link {{ request()->routeIs('pelanggan.beranda') ? 'active' : '' }}" href="{{ route('pelanggan.beranda') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pelanggan.menu') }}">Menu</a>
+                    <a class="nav-link {{ request()->routeIs('pelanggan.menu') ? 'active' : '' }}" href="{{ route('pelanggan.menu') }}">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pelanggan.about') }}">About</a>
+                    <a class="nav-link {{ request()->routeIs('pelanggan.about') ? 'active' : '' }}" href="{{ route('pelanggan.about') }}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pelanggan.contact') }}">Contact</a>
+                    <a class="nav-link {{ request()->routeIs('pelanggan.contact') ? 'active' : '' }}" href="{{ route('pelanggan.contact') }}">Contact</a>
                 </li>
             </ul>
 
@@ -27,13 +25,13 @@
                 @guest('pelanggan')
                     <li class="nav-item">
                         <a class="btn btn-pill-cream btn-sm" href="{{ route('pelanggan.pesanan.create') }}">
-                            <i class="fas fa-mug-hot mr-1"></i> Order Now
+                            <i class="fa fa-coffee mr-1"></i> Order Now
                         </a>
                     </li>
                 @else
                     <li class="nav-item">
                         <a class="btn btn-pill-cream btn-sm mr-2" href="{{ route('pelanggan.pesanan.create') }}">
-                            <i class="fas fa-mug-hot mr-1"></i> Order Now
+                            <i class="fa fa-coffee mr-1"></i> Order Now
                         </a>
                     </li>
                     <li class="nav-item dropdown">

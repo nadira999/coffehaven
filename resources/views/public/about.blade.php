@@ -18,22 +18,20 @@
     </div>
 </div>
 
-<div class="container py-5">
+<div class="container-fluid px-md-5 py-5">
     <div class="row align-items-center">
-        <div class="col-md-5 mb-4 mb-md-0">
-            <div class="bg-light d-flex align-items-center justify-content-center" style="height: 300px;">
-                <span class="text-muted">[ foto ]</span>
-            </div>
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="{{ asset('images/about2.jpg') }}" class="rounded w-100" style="max-height: 400px; object-fit: cover;" alt="Tentang The Coffee Haven">
         </div>
 
-        <div class="col-md-7">
-            <h4 class="text-coffee font-weight-bold font-heading mb-3">Tentang Coffee Kami</h4>
-            <p class="text-muted">
+        <div class="col-md-6">
+            <h4 class="text-coffee font-weight-bold font-heading mb-3" style="font-size: 1.75rem;">Tentang Coffee Kami</h4>
+            <p class="text-muted" style="font-size: 1.1rem;">
                 The Coffee Haven hadir sebagai tempat singgah bagi para pencinta kopi yang mencari kehangatan
                 di tengah kesibukan sehari-hari. Setiap cangkir yang kami sajikan diracik dengan biji kopi
                 pilihan dan penuh perhatian, mulai dari proses seduh hingga sajian akhir.
             </p>
-            <p class="text-muted mb-0">
+            <p class="text-muted mb-0" style="font-size: 1.1rem;">
                 Kami ingin menjadi tempat di mana setiap orang merasa nyaman untuk singgah, bekerja,
                 atau sekadar menikmati momen bersama secangkir kopi hangat.
             </p>
@@ -73,9 +71,4 @@
         </div>
     </div>
 </div>
-
-<div class="jam-operasional text-center py-3">
-    <small>Jam Operasional: 08.00 - 21.00</small>
-</div>
-
 @endsection

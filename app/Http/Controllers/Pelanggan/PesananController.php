@@ -34,7 +34,7 @@ class PesananController extends Controller
             'jumlah.*' => 'integer|min:1',
             'catatan' => 'nullable|string',
             'metode_pembayaran' => 'required|string',
-            'bukti_pembayaran' => 'required|image|max:2048',
+            'bukti_pembayaran' => $request->metode_pembayaran === 'COD' ? 'nullable|image|max:2048' : 'required|image|max:2048',
         ], [
             'pilih.required' => 'Pilih minimal 1 menu terlebih dahulu.',
         ]);
@@ -78,7 +78,10 @@ class PesananController extends Controller
 
         $pesanan->update(['total_harga' => $totalHarga]);
 
-        $buktiPath = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        $buktiPath = null;
+        if ($request->hasFile('bukti_pembayaran')) {
+            $buktiPath = $request->file('bukti_pembayaran')->store('bukti_pembayaran', 'public');
+        }
 
         Pembayaran::create([
             'pesanan_id' => $pesanan->id,

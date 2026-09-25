@@ -6,8 +6,8 @@
 <div class="login-card">
     <div class="login-logo">The Coffee Haven</div>
 
-    <div class="login-greeting">Selamat Datang Kembali! 👋</div>
-    <div class="login-subtitle">Login untuk melanjutkan pemesanan</div>
+    <div class="login-greeting">Selamat Datang! 👋</div>
+    <div class="login-subtitle">Login untuk membuat pemesanan</div>
 
     <form method="POST" action="{{ route('pelanggan.login.submit') }}" autocomplete="off">
         @csrf

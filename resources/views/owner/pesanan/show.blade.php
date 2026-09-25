@@ -7,20 +7,66 @@
         <h1 class="h3 mb-0 text-gray-800">Detail Pesanan #{{ $pesanan->id }}</h1>
     </div>
 
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <p class="mb-2"><strong>Nama:</strong><br>{{ $pesanan->pelanggan->nama }}</p>
-                    <p class="mb-2"><strong>Status:</strong><br>{{ $pesanan->status }}</p>
-                    <p class="mb-0"><strong>Catatan:</strong><br>{{ $pesanan->catatan ?? '-' }}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Data Pesanan</h5>
                 </div>
-                <div class="col-md-6">
-                    <p class="mb-2"><strong>Tanggal Pesan:</strong><br>{{ $pesanan->created_at->format('d-m-Y H:i') }}</p>
-                    <p class="mb-0"><strong>Metode Bayar:</strong><br>{{ $pesanan->pembayaran->metode ?? '-' }}</p>
+
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Nama Pelanggan</label>
+                        <input type="text" class="form-control" value="{{ $pesanan->pelanggan->nama }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Alamat</label>
+                        <textarea class="form-control" rows="2" readonly>{{ $pesanan->pelanggan->alamat }}</textarea>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">No. Telepon</label>
+                        <input type="text" class="form-control" value="{{ $pesanan->pelanggan->no_telepon }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Status</label>
+                        <input type="text" class="form-control" value="{{ $pesanan->status }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Tanggal Pesan</label>
+                        <input type="text" class="form-control" value="{{ $pesanan->created_at->format('d-m-Y H:i') }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Metode Bayar</label>
+                        <input type="text" class="form-control" value="{{ $pesanan->pembayaran->metode ?? '-' }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Catatan</label>
+                        <textarea class="form-control" rows="2" readonly>{{ $pesanan->catatan ?? '-' }}</textarea>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="{{ route('owner.pesanan.index') }}" class="btn btn-secondary">
+                        <span class="fa fa-times-circle"></span>
+                        Kembali
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="card shadow mt-4">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Rincian Pesanan</h5>
+        </div>
+
+        <div class="card-body">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -40,8 +86,7 @@
                 </tbody>
             </table>
 
-            <div class="d-flex justify-content-between align-items-center mt-4">
-                <a href="{{ route('owner.pesanan.index') }}" class="btn btn-coffee">Kembali</a>
+            <div class="d-flex justify-content-end">
                 <div class="border rounded p-2 px-3">
                     <strong>Total: Rp {{ number_format($pesanan->total_harga, 0, ',', '.') }}</strong>
                 </div>

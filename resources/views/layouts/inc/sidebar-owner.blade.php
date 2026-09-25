@@ -4,7 +4,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-mug-hot"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Coffee Haven</div>
+        <div class="sidebar-brand-text mx-3">The Coffee Haven</div>
     </a>
 
     <hr class="sidebar-divider my-0">
@@ -34,13 +34,6 @@
         <a class="nav-link" href="{{ route('owner.pembayaran.index') }}">
             <i class="fas fa-fw fa-money-check-alt"></i>
             <span>Data Pembayaran</span>
-        </a>
-    </li>
-
-    <li class="nav-item {{ request()->routeIs('owner.profil.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('owner.profil.edit') }}">
-            <i class="fas fa-fw fa-user-circle"></i>
-            <span>Data Owner</span>
         </a>
     </li>
 

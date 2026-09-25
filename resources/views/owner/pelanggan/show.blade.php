@@ -7,20 +7,51 @@
         <h1 class="h3 mb-0 text-gray-800">Detail Pelanggan</h1>
     </div>
 
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <p class="mb-2"><strong>Nama:</strong><br>{{ $pelanggan->nama }}</p>
-                    <p class="mb-0"><strong>Email:</strong><br>{{ $pelanggan->email }}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Data Pelanggan</h5>
                 </div>
-                <div class="col-md-6">
-                    <p class="mb-2"><strong>No. Telepon:</strong><br>{{ $pelanggan->no_telepon }}</p>
-                    <p class="mb-0"><strong>Alamat:</strong><br>{{ $pelanggan->alamat }}</p>
+
+                <div class="card-body">
+                    <div class="form-group mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" value="{{ $pelanggan->nama }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" value="{{ $pelanggan->email }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">No. Telepon</label>
+                        <input type="text" class="form-control" value="{{ $pelanggan->no_telepon }}" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="form-label">Alamat</label>
+                        <textarea class="form-control" rows="2" readonly>{{ $pelanggan->alamat }}</textarea>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="{{ route('owner.pelanggan.index') }}" class="btn btn-secondary">
+                        <span class="fa fa-times-circle"></span>
+                        Kembali
+                    </a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <h6 class="font-weight-bold text-coffee mb-3">Riwayat Pemesanan</h6>
+    <div class="card shadow mt-4">
+        <div class="card-header">
+            <h5 class="card-title mb-0">Riwayat Pemesanan</h5>
+        </div>
+
+        <div class="card-body">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -45,8 +76,6 @@
                     @endforelse
                 </tbody>
             </table>
-
-            <a href="{{ route('owner.pelanggan.index') }}" class="btn btn-coffee mt-3">Kembali</a>
         </div>
     </div>
 @endsection

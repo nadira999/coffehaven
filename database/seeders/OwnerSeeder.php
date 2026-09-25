@@ -14,7 +14,7 @@ class OwnerSeeder extends Seeder
     public function run(): void
     {
         Owner::create([
-            "nama" => "Owner Coffee Haven",
+            "nama" => "Owner",
             "email" => "owner@coffeehaven.com",
             "password" => Hash::make("password123")
         ]);

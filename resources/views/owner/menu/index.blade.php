@@ -8,65 +8,15 @@
     </div>
 
     <div class="card shadow mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0">Data Menu</h5>
+            <a href="{{ route('owner.menu.create') }}" class="btn btn-white-coffee">
+                <span class="fa fa-plus-circle mr-2"></span>
+                <span>Tambah</span>
+            </a>
+        </div>
         <div class="card-body">
-            <form action="{{ route('owner.menu.store') }}" method="POST" enctype="multipart/form-data" class="mb-4">
-                @csrf
-
-                <div class="row g-3 align-items-end">
-                    <div class="col-md-3">
-                        <label for="nama_menu" class="form-label">Nama Menu</label>
-                        <input type="text" name="nama_menu" id="nama_menu" value="{{ old('nama_menu') }}" autocomplete="off"
-                            class="form-control @error('nama_menu') is-invalid @enderror">
-                        @error('nama_menu')
-                            <span class="invalid-feedback d-block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="kategori" class="form-label">Kategori</label>
-                        <select name="kategori" id="kategori" class="form-select @error('kategori') is-invalid @enderror">
-                            <option value="">-- Pilih --</option>
-                            @foreach (['Kopi', 'Non-Kopi', 'Pastry', 'Camilan'] as $kategori)
-                                <option value="{{ $kategori }}" {{ old('kategori') == $kategori ? 'selected' : '' }}>{{ $kategori }}</option>
-                            @endforeach
-                        </select>
-                        @error('kategori')
-                            <span class="invalid-feedback d-block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="foto" class="form-label">Foto</label>
-                        <input type="file" name="foto" id="foto" class="form-control @error('foto') is-invalid @enderror">
-                        @error('foto')
-                            <span class="invalid-feedback d-block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="harga" class="form-label">Harga</label>
-                        <div class="input-group">
-                            <span class="input-group-text">Rp</span>
-                            <input type="number" name="harga" id="harga" value="{{ old('harga') }}"
-                                class="form-control @error('harga') is-invalid @enderror">
-                        </div>
-                        @error('harga')
-                            <span class="invalid-feedback d-block">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-white-coffee w-100">Tambah</button>
-                    </div>
-                </div>
-
-                <div class="form-check mt-3">
-                    <input type="checkbox" name="unggulan" id="unggulan" value="1" class="form-check-input" {{ old('unggulan') ? 'checked' : '' }}>
-                    <label for="unggulan" class="form-check-label">Jadikan Menu Unggulan (tampil di Beranda)</label>
-                </div>
-            </form>
-
-            <table class="table table-striped table-bordered">
+            <table class="table table-striped table-bordered datatable">
                 <thead>
                     <tr>
                         <th width="50px">NO</th>
@@ -74,14 +24,13 @@
                         <th>KATEGORI</th>
                         <th>FOTO</th>
                         <th>HARGA</th>
-                        <th>UNGGULAN</th>
-                        <th width="150">AKSI</th>
+                        <th width="120">AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($menu as $item)
                         <tr>
-                            <td>{{ $menu->firstItem() + $loop->index }}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->nama_menu }}</td>
                             <td>{{ $item->kategori }}</td>
                             <td>
@@ -93,26 +42,22 @@
                             </td>
                             <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                             <td>
-                                @if ($item->unggulan)
-                                    <span class="badge bg-success">Ya</span>
-                                @else
-                                    <span class="badge bg-secondary">Tidak</span>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{ route('owner.menu.edit', $item->id) }}" class="btn btn-link p-0 me-2">Edit</a>
-                                <a href="#" onclick="actionDestroy('{{ route('owner.menu.destroy', $item->id) }}')" class="btn btn-link text-danger p-0">Hapus</a>
+                                <a href="{{ route('owner.menu.edit', $item->id) }}" class="btn btn-link p-0 mx-2">
+                                    <span class="fa fa-edit"></span>
+                                </a>
+                                <a href="#" onclick="actionDestroy('{{ route('owner.menu.destroy', $item->id) }}')"
+                                    class="btn btn-link text-danger p-0 mx-2">
+                                    <span class="fa fa-trash"></span>
+                                </a>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center">Data menu tidak ditemukan...</td>
+                            <td colspan="6" class="text-center">Data menu tidak ditemukan...</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
-
-            {!! $menu->links() !!}
         </div>
     </div>
 
@@ -121,8 +66,19 @@
         @method('DELETE')
     </form>
 
+    @push('styles')
+    <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" />
+    @endpush
+
     @push('scripts')
+    <script type="text/javascript" src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+        $('.datatable').dataTable({
+    lengthChange: false,
+    ordering: false
+});
+
         function actionDestroy(url) {
             Swal.fire({
                 title: "Apa kamu yakin?",

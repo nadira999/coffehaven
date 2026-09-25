@@ -17,7 +17,7 @@
                         <th>METODE</th>
                         <th>BUKTI</th>
                         <th>STATUS</th>
-                        <th width="150">AKSI</th>
+                        <th width="120">AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,18 +33,14 @@
                                     -
                                 @endif
                             </td>
-                            <td>{{ $item->status }}</td>
+                            <td>{{ $item->status == 'Gagal' ? 'Ditolak' : $item->status }}</td>
                             <td>
-                                <form action="{{ route('owner.pembayaran.verifikasi', $item->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-link text-success p-0 me-2">Verifikasi</button>
-                                </form>
-                                <form action="{{ route('owner.pembayaran.tolak', $item->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-link text-danger p-0">Tolak</button>
-                                </form>
+                                <a href="#" onclick="actionVerifikasi('{{ route('owner.pembayaran.verifikasi', $item->id) }}')" class="btn btn-link text-success p-0 mx-2">
+                                    <span class="fa fa-check"></span>
+                                </a>
+                                <a href="#" onclick="actionTolak('{{ route('owner.pembayaran.tolak', $item->id) }}')" class="btn btn-link text-danger p-0 mx-2">
+                                    <span class="fa fa-times"></span>
+                                </a>
                             </td>
                         </tr>
                     @empty
@@ -58,4 +54,50 @@
             {!! $pembayaran->links() !!}
         </div>
     </div>
+
+    <form action="" id="form-verifikasi" method="POST">
+        @csrf
+        @method('PUT')
+    </form>
+
+    <form action="" id="form-tolak" method="POST">
+        @csrf
+        @method('PUT')
+    </form>
+
+    @push('scripts')
+    <script>
+        function actionVerifikasi(url) {
+            Swal.fire({
+                title: "Verifikasi Pembayaran?",
+                text: "Status pembayaran akan diubah menjadi Lunas.",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Verifikasi!",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#form-verifikasi').attr('action', url);
+                    $('#form-verifikasi').submit();
+                }
+            });
+        }
+
+        function actionTolak(url) {
+            Swal.fire({
+                title: "Tolak Pembayaran?",
+                text: "Status pembayaran akan diubah menjadi Ditolak.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Tolak!",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#form-tolak').attr('action', url);
+                    $('#form-tolak').submit();
+                }
+            });
+        }
+    </script>
+    @endpush
 @endsection

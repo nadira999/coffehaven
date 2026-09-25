@@ -15,6 +15,7 @@ Route::prefix('owner')->name('owner.')->group(function () {
         Route::get('/pesanan/{id}', [\App\Http\Controllers\Owner\PesananController::class, 'show'])->name('pesanan.show');
         Route::put('/pesanan/{id}/status', [\App\Http\Controllers\Owner\PesananController::class, 'updateStatus'])->name('pesanan.status');
         Route::get('/pesanan/{id}/cetak', [\App\Http\Controllers\Owner\PesananController::class, 'cetak'])->name('pesanan.cetak');
+        Route::delete('/pesanan/{id}', [\App\Http\Controllers\Owner\PesananController::class, 'destroy'])->name('pesanan.destroy');
 
         Route::get('/pembayaran', [\App\Http\Controllers\Owner\PembayaranController::class, 'index'])->name('pembayaran.index');
         Route::put('/pembayaran/{id}/verifikasi', [\App\Http\Controllers\Owner\PembayaranController::class, 'verifikasi'])->name('pembayaran.verifikasi');

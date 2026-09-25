@@ -13,6 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('pelanggan/*')) {
+                return route('pelanggan.login');
+            }
+
             return route('owner.login');
         });
     })

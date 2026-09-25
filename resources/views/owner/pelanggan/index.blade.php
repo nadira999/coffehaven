@@ -17,7 +17,7 @@
                         <th>EMAIL</th>
                         <th>NO. TELP</th>
                         <th>ALAMAT</th>
-                        <th width="150">AKSI</th>
+                        <th width="120">AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,8 +29,13 @@
                             <td>{{ $item->no_telepon }}</td>
                             <td>{{ $item->alamat }}</td>
                             <td>
-                                <a href="{{ route('owner.pelanggan.show', $item->id) }}" class="btn btn-link p-0 me-2">Detail</a>
-                                <a href="#" onclick="actionDestroy('{{ route('owner.pelanggan.destroy', $item->id) }}')" class="btn btn-link text-danger p-0">Hapus</a>
+                                <a href="{{ route('owner.pelanggan.show', $item->id) }}" class="btn btn-link text-secondary p-0 mx-2">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                                <a href="#" onclick="actionDestroy('{{ route('owner.pelanggan.destroy', $item->id) }}')"
+                                    class="btn btn-link text-danger p-0 mx-2">
+                                    <span class="fa fa-trash"></span>
+                                </a>
                             </td>
                         </tr>
                     @empty

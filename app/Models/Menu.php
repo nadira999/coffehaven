@@ -16,7 +16,6 @@ class Menu extends Model
         "kategori",
         "harga",
         "foto",
-        "unggulan"
     ];
 
     public function pesananDetail()

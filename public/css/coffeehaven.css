@@ -1,3 +1,4 @@
+/* Variabel Warna Global (Tema Coffee Haven) */
 :root {
     --coffee-dark: #4b2e2b;
     --coffee: #6f4e37;
@@ -6,6 +7,7 @@
     --cream-dark: #e9dfc9;
 }
 
+/* Utility Warna & Tombol */
 body {
     background-color: var(--cream);
 }
@@ -39,8 +41,13 @@ body {
     background-color: var(--coffee) !important;
 }
 
+/* Font Custom (Judul & Tulisan Tangan) */
 .font-heading {
     font-family: 'Playfair Display', serif;
+}
+
+.font-script {
+    font-family: 'Dancing Script', cursive;
 }
 
 /* Login & Register (Owner & Pelanggan) */
@@ -88,6 +95,12 @@ body {
     padding: .75rem 1rem;
 }
 
+select.login-input {
+    height: auto;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
 .login-input:focus {
     border-color: var(--coffee);
     box-shadow: 0 0 0 .2rem rgba(111, 78, 55, .15);
@@ -108,18 +121,6 @@ table.table-bordered td {
     background-color: #F8F9FC;
 }
 
-.card:has(table) {
-    background-color: var(--coffee);
-}
-
-.card:has(table) .card-header,
-.card:has(table) .card-title,
-.card:has(table) h5,
-.card:has(table) h6 {
-    background-color: transparent;
-    color: #fff;
-}
-
 /* Sidebar & Topbar (Owner) */
 .sidebar.bg-gradient-coffee {
     background: linear-gradient(180deg, var(--coffee) 10%, var(--coffee-dark) 100%);
@@ -133,7 +134,52 @@ table.table-bordered td {
 .navbar-brand-spaced {
     letter-spacing: 2px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--cream);
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.btn-pill-cream {
+    background-color: var(--cream);
+    color: var(--coffee-dark);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-weight: 600;
+}
+
+.btn-pill-cream:hover {
+    background-color: #fff;
+    color: var(--coffee-dark);
+}
+
+.btn-white-coffee {
+    background-color: #fff;
+    color: var(--coffee-dark);
+    border: 1px solid #fff;
+    font-weight: 600;
+}
+
+.btn-white-coffee:hover {
+    background-color: var(--cream);
+    color: var(--coffee-dark);
 }
 
 /* Footer Publik */
@@ -168,38 +214,6 @@ table.table-bordered td {
     color: var(--cream);
 }
 
-.nav-link {
-    position: relative;
-}
-
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background-color: var(--cream);
-    transition: width 0.25s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.btn-pill-cream {
-    background-color: var(--cream);
-    color: var(--coffee-dark);
-    border-radius: 50px;
-    padding: 6px 18px;
-    font-weight: 600;
-}
-
-.btn-pill-cream:hover {
-    background-color: #fff;
-    color: var(--coffee-dark);
-}
-
 /* Beranda */
 .hero-coffee {
     background-image: url('/images/hero-beranda2.jpeg');
@@ -209,11 +223,13 @@ table.table-bordered td {
     height: 570px;
 }
 
+/* Kartu Gambar (dipakai di Beranda & Halaman Menu) */
 .card-img-top {
-    height: 180px;
+    height: 280px;
     object-fit: cover;
 }
 
+/* Beranda - Visit Us & Jam Operasional */
 .visit-us-section {
     background-color: var(--cream-dark);
 }
@@ -221,8 +237,4 @@ table.table-bordered td {
 .jam-operasional {
     background-color: var(--cream-dark);
     color: var(--coffee-dark);
-}
-
-.font-script {
-    font-family: 'Dancing Script', cursive;
 }

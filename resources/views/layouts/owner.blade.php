@@ -13,6 +13,8 @@
     <link href="{{ asset('css/coffeehaven.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.26.25/sweetalert2.min.css">
+
+    @stack('styles')
 </head>
 <body id="page-top">
     <div id="wrapper">
@@ -55,5 +57,6 @@
     @endif
 
     @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

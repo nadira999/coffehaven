@@ -106,9 +106,4 @@
         </div>
     </div>
 </div>
-<div class="jam-operasional text-center py-3">
-    <small>Jam Operasional: 08.00 - 21.00</small>
-</div>
-
-
 @endsection

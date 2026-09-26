@@ -25,17 +25,22 @@
         </div>
 
         <div class="col-md-6">
-            <h4 class="text-coffee font-weight-bold font-heading mb-3" style="font-size: 1.75rem;">Tentang Coffee Kami</h4>
-            <p class="text-muted" style="font-size: 1.1rem;">
-                The Coffee Haven hadir sebagai tempat singgah bagi para pencinta kopi yang mencari kehangatan
-                di tengah kesibukan sehari-hari. Setiap cangkir yang kami sajikan diracik dengan biji kopi
-                pilihan dan penuh perhatian, mulai dari proses seduh hingga sajian akhir.
-            </p>
-            <p class="text-muted mb-0" style="font-size: 1.1rem;">
-                Kami ingin menjadi tempat di mana setiap orang merasa nyaman untuk singgah, bekerja,
-                atau sekadar menikmati momen bersama secangkir kopi hangat.
-            </p>
-        </div>
+    <h4 class="text-coffee font-weight-bold font-heading mb-3" style="font-size: 1.75rem;">Tentang Coffee Kami</h4>
+    <p class="text-muted" style="font-size: 1.1rem;">
+        The Coffee Haven hadir sebagai tempat singgah bagi para pencinta kopi yang mencari kehangatan
+        di tengah kesibukan sehari-hari. Setiap cangkir yang kami sajikan diracik dengan biji kopi
+        pilihan dan penuh perhatian, mulai dari proses seduh hingga sajian akhir.
+    </p>
+    <p class="text-muted" style="font-size: 1.1rem;">
+        Selain kopi, kami juga menghadirkan pilihan non-kopi, pastry, dan camilan yang dibuat segar
+        setiap harinya, agar setiap pelanggan tetap punya pilihan meski sedang tidak ingin menikmati kopi.
+        Bagi kami, kualitas rasa dan kenyamanan pelanggan adalah prioritas utama dalam setiap sajian.
+    </p>
+    <p class="text-muted mb-0" style="font-size: 1.1rem;">
+        Kami ingin menjadi tempat di mana setiap orang merasa nyaman untuk singgah, bekerja,
+        atau sekadar menikmati momen bersama secangkir kopi hangat.
+    </p>
+</div>
     </div>
 </div>
 @endsection
